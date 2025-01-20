@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dose Of Whatever</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="menu-button" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <div class="menu-content">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('contact')">Contact</a>
+            <a href="#" onclick="showPage('more')">More</a>
+        </div>
+    </div>
+    
+    <div class="container" id="home">
+        <header>
+            <h1>Dose Of Whatever</h1>
+        </header>
+        <main>
+            <div class="grid">
+                <div class="square" onclick="showPage('page1')">Depth Info</div>
+                <div class="square" onclick="showPage('page2')">Just click</div>
+                <div class="square" onclick="showPage('page3')">Click here too</div>
+                <div class="square" onclick="showPage('page4')">One last click</div>
+            </div>
+        </main>
+    </div>
+
+    <div class="container page" id="page1">
+        <header>
+            <h1>Welcome to Depth Info</h1>
+        </header>
+        <section class="info">
+            <div class="info-box">
+                <p>The Local Group is the galaxy group that includes the Milky Way. It contains over 54 galaxies, including Andromeda, Triangulum, and the Magellanic Clouds.</p>
+                <p>These galaxies are gravitationally bound to each other, and their center of mass is located somewhere between the Milky Way and Andromeda galaxies.</p>
+                <p>For more information, visit: <a href="https://en.wikipedia.org/wiki/Local_Group" target="_blank">Wikipedia - Local Group</a></p>
+            </div>
+            <button class="back-button" onclick="showPage('home')">Back</button>
+        </section>
+    </div>
+
+    <div class="container page" id="page2">
+        <header>
+            <h1>Welcome to Just click</h1>
+        </header>
+        <section class="info">
+            <div class="floating-box-container">
+                <div class="floating-box" onclick="bubbleEffect(this)">Support me for better UX!</div>
+                <div class="floating-box" onclick="bubbleEffect(this)">Support me for better UX!</div>
+                <div class="floating-box" onclick="bubbleEffect(this)">Support me for better UX!</div>
+                <!-- Add more boxes as needed -->
+            </div>
+            <button class="back-button" onclick="showPage('home')">Back</button>
+        </section>
+    </div>
+
+    <div class="container page" id="page3">
+        <header>
+            <h1>Welcome to Click here too</h1>
+        </header>
+        <section class="info">
+            <div class="bubble-box-container">
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+                <div class="bubble-box">More soon!</div>
+            </div>
+            <button class="back-button" onclick="showPage('home')">Back</button>
+        </section>
+    </div>
+
+    <div class="container page" id="page4">
+        <header>
+            <h1>Welcome to One last click</h1>
+        </header>
+        <section class="info">
+            <div class="info-box">
+                <p>Biodiversity refers to the variety of life on Earth at all its levels, from genes to ecosystems, and can encompass the evolutionary, ecological, and cultural processes that sustain life.</p>
+                <p>It is crucial for ecosystem productivity and balance, ensuring natural sustainability for all forms of life.</p>
+                <p>For more information, visit: <a href="https://en.wikipedia.org/wiki/Biodiversity" target="_blank">Wikipedia - Biodiversity</a></p>
+            </div>
+            <button class="back-button" onclick="showPage('home')">Back</button>
+        </section>
+    </div>
+
+    <div class="container page" id="contact">
+        <header>
+            <h1>Contact Us</h1>
+        </header>
+        <section class="info">
+            <p>Email: <a href="mailto:appdev@contact.com">appdev@contact.com</a></p>
+            <p>Phone: +40 722 123 456</p>
+            <p>Location: Romania, Bucharest</p>
+            <button class="back-button" onclick="showPage('home')">Back</button>
+        </section>
+    </div>
+
+    <div class="container page" id="more">
+        <header>
+            <h1>More About the Author</h1>
+        </header>
+        <section class="info">
+            <div class="info-box author-box" onclick="showLinkPopup()">
+                <p>Sararu George</p>
+                <p><a href="https://www.instagram.com/gworge._/" target="_blank" id="author-link" style="display: none;">https://www.instagram.com/gworge._/</a></p>
+            </div>
+            <button class="back-button" onclick="showPage('home')">Back</button>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menuContent = document.querySelector('.menu-content');
+            menuContent.classList.toggle('show');
+            menuContent.classList.toggle('pop-up');
+        }
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.container');
+            pages.forEach(page => {
+                page.style.display = 'none';
+                page.classList.remove('fade-in');
+            });
+            const activePage = document.getElementById(pageId);
+            activePage.style.display = 'block';
+            setTimeout(() => activePage.classList.add('fade-in'), 10);
+        }
+
+        function bubbleEffect(element) {
+            element.classList.add('bubble-animation');
+            setTimeout(() => element.classList.remove('bubble-animation'), 600);
+        }
+
+        function showLinkPopup() {
+            const link = document.getElementById('author-link');
+            link.style.display = 'block';
+            link.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>

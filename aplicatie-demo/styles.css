@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    transition: transform 0.3s, background 0.3s, filter 0.3s;
+    cursor: pointer;
+}
+
+.square:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.square:active {
+    filter: invert(1);
+}
+
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.menu-button {
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.menu-content {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.menu-content.show {
+    display: flex;
+}
+
+.menu-content.pop-up {
+    animation: bubble 0.5s ease-in-out;
+}
+
+@keyframes bubble {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.menu-content a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.menu-content a:hover {
+    color: lightgray;
+}
+
+.page {
+    display: none;
+}
+
+.info {
+    font-size: 1.5em;
+    margin: 2em 0;
+}
+
+.info a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+.info a:hover {
+    text-decoration: underline;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.back-button:hover {
+    background: #777;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.info-box:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.bubble-box-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.bubble-box {
+    position: absolute;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    animation: floatLeftRight 5s linear infinite;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes floatLeftRight {
+    0% { left: -10%; }
+    50% { left: 110%; }
+    100% { left: -10%; }
+}
+
